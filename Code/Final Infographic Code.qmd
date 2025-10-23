@@ -8,7 +8,6 @@ editor: visual
 ### Loading in Libraries
 
 ```{r, message=FALSE}
-#| echo: False
 # Load libraries
 library(dplyr)
 library(scales)
@@ -27,9 +26,8 @@ library(sf)
 ### Data Preprocessing
 
 ```{r}
-#| echo: False
 # Load in the data 
-uber <- read.csv('uber_ride_bookings.csv')
+uber <- read.csv('../data/uber_ride_bookings.csv')
 # head(uber)
 
 # add day of the week from date
@@ -53,7 +51,7 @@ uber_cancellations <- uber |>
 
 ### Time Series
 
-```{r, echo = FALSE, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Step 1: Preprocess data — combine cancellation types
 timeseries_cancellations <- uber %>%
   mutate(Date = as.Date(Date)) %>%
@@ -106,7 +104,7 @@ timeseries
 
 ### Heat Map
 
-```{r, echo = FALSE, message=FALSE}
+```{r, message=FALSE}
 # Create 3-hour bins
 uber <- uber %>%
   mutate(
@@ -199,7 +197,7 @@ heatmap
 
 ### Spatial Data Map + Inset
 
-```{r, echo = FALSE, message=FALSE, warning= FALSE}
+```{r, message=FALSE, warning= FALSE}
 # get latitude and longitude of pickup locations 
 uber_cancellations <- uber |> 
   mutate(full_address = paste(Pickup.Location, "India")) |> 
@@ -291,7 +289,7 @@ cancellation rates remain broadly similar with no major regional spikes.",
 spatial_data_map
 ```
 
-```{r, echo = FALSE, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Define Delhi NCR bounding box
 delhi_bbox <- c(left = 76.8, bottom = 28.3, right = 77.5, top = 28.9)
 
@@ -333,7 +331,7 @@ inset_map
 
 ### Stacked Bar Chart
 
-```{r, echo = FALSE, message=FALSE}
+```{r,  message=FALSE}
 # grouped data by booking status and vehicle tier
 uber_booking_status_vehicle_tier_grouped_df <- uber |>
   mutate(Tier = case_when(
