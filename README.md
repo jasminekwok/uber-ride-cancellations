@@ -31,11 +31,12 @@ The analysis identifies **when**, **where**, and **why** rides are most likely t
 
 ## 🧰 Tools & Technologies  
 - **Language:** R  
-- **Libraries:**  
-  - `tidyverse`, `dplyr`, `lubridate` – data cleaning & manipulation  
-  - `ggplot2` – advanced visualization  
-  - `ggmap` – geographic mapping & spatial analysis  
-  - `scales` – labeling & formatting  
+- **Core Libraries:**  
+  - `dplyr`, `scales`, `slider` – data cleaning, aggregation, smoothing  
+  - `ggplot2`, `ggtext`, `patchwork` – visualization and infographic design  
+  - `tidyquant`, `ggseas`, `gghighlight` – trend analysis and time-series smoothing  
+  - `ggmap`, `tidygeocoder`, `sf` – spatial data and mapping  
+  - `tidyverse` – integrated data wrangling and plotting framework  
 
 ---
 
